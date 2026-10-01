@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini RPG - Chroniques de Pokline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="E.css">
+</head>
+<body>
+    <div class="decor" aria-hidden="true">
+        <div class="brume"></div>
+        <div class="braises"></div>
+        <div class="braises deux"></div>
+        <svg class="armee" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMax slice">
+            <defs>
+                <symbol id="soldat" viewBox="0 0 60 140">
+                    <path d="M22 12 L16 -4 L27 6 Z M38 12 L44 -4 L33 6 Z"/>
+                    <circle cx="30" cy="18" r="10"/>
+                    <path d="M16 32 L44 32 L52 74 L45 76 L47 138 L35 138 L30 96 L25 138 L13 138 L15 76 L8 74 Z"/>
+                    <circle cx="14" cy="36" r="8"/><circle cx="46" cy="36" r="8"/>
+                    <path d="M12 60 Q30 150 48 60 L60 80 Q30 170 0 80 Z" opacity=".85"/>
+                    <rect x="54" y="2" width="3" height="110"/>
+                    <rect x="50" y="54" width="11" height="3"/>
+                    <rect class="oeil" x="24" y="16" width="5" height="2"/>
+                    <rect class="oeil" x="32" y="16" width="5" height="2"/>
+                </symbol>
+            </defs>
+            <use href="#soldat" class="ombre-fig loin" x="20" y="300" width="42" height="98"/>
+            <use href="#soldat" class="ombre-fig loin" x="115" y="308" width="42" height="98"/>
+            <use href="#soldat" class="ombre-fig loin" x="210" y="316" width="42" height="98"/>
+            <use href="#soldat" class="ombre-fig loin" x="305" y="300" width="42" height="98"/>
+            <use href="#soldat" class="ombre-fig loin" x="400" y="308" width="42" height="98"/>
+            <use href="#soldat" class="ombre-fig loin" x="495" y="316" width="42" height="98"/>
+            <use href="#soldat" class="ombre-fig loin" x="590" y="300" width="42" height="98"/>
+            <use href="#soldat" class="ombre-fig loin" x="685" y="308" width="42" height="98"/>
+            <use href="#soldat" class="ombre-fig loin" x="780" y="316" width="42" height="98"/>
+            <use href="#soldat" class="ombre-fig loin" x="875" y="300" width="42" height="98"/>
+            <use href="#soldat" class="ombre-fig loin" x="970" y="308" width="42" height="98"/>
+            <use href="#soldat" class="ombre-fig loin" x="1065" y="316" width="42" height="98"/>
+            <use href="#soldat" class="ombre-fig loin" x="1160" y="300" width="42" height="98"/>
+            <use href="#soldat" class="ombre-fig" x="-10" y="250" width="72" height="168"/>
+            <use href="#soldat" class="ombre-fig" x="150" y="250" width="72" height="168"/>
+            <use href="#soldat" class="ombre-fig" x="330" y="250" width="72" height="168"/>
+            <use href="#soldat" class="ombre-fig" x="520" y="250" width="72" height="168"/>
+            <use href="#soldat" class="ombre-fig" x="700" y="250" width="72" height="168"/>
+            <use href="#soldat" class="ombre-fig" x="880" y="250" width="72" height="168"/>
+            <use href="#soldat" class="ombre-fig" x="1060" y="250" width="72" height="168"/>
+            <use href="#soldat" class="ombre-fig" x="1130" y="250" width="72" height="168"/>
+            <use href="#soldat" class="ombre-fig" x="-30" y="140" width="150" height="350"/>
+            <use href="#soldat" class="ombre-fig" x="1090" y="130" width="160" height="372"/>
+        </svg>
+    </div>
+
+    <div class="page">
+
+        <header class="fenetre hud">
+            <img src="pokline.webp" alt="Pokline" class="portrait">
+            <div class="identite">
+                <h2 id="myName"></h2>
+                <span id="classe" class="badge"></span>
+            </div>
+            <div class="niveau-bloc"><small>NIVEAU</small><strong id="niveau"></strong></div>
+            <div class="jauges">
+                <div class="ligne-barre"><label>FORCE</label><div class="barre"><div id="barre-force" class="remplissage"></div></div></div>
+                <div class="ligne-barre"><label>MAGIE</label><div class="barre"><div id="barre-magie" class="remplissage"></div></div></div>
+            </div>
+            <button id="recommencer" class="mini"><i class="icone">🔄</i>Recommencer</button>
+        </header>
+
+        <main class="scene">
+            <aside class="fenetre" id="sac">
+                <div class="titre">ATTRIBUTS</div>
+                <div class="contenu liste">
+                    <div class="stat"><i class="icone">⚔️</i>Force<strong id="force"></strong></div>
+                    <div class="stat"><i class="icone">✨</i>Magie<strong id="magie"></strong></div>
+                    <div class="stat"><i class="icone">💰</i>Pièces<strong id="pieces"></strong></div>
+                    <h3 class="sous-titre">INVENTAIRE</h3>
+                    <div class="slot"><i class="icone">🗝️</i>Clé<strong id="cle"></strong></div>
+                    <div class="slot"><i class="icone">🎩</i>Chapeau<strong id="chapeau"></strong></div>
+                </div>
+            </aside>
+
+            <section class="fenetre" id="arene">
+                <div class="titre">DONJON</div>
+                <div class="contenu arene">
+                    <div class="alerte"><p id="message">Bienvenue dans le jeu !</p></div>
+                    <div class="ennemis">
+                        <button class="carte" id="fantome"><i class="icone"></i><b>Fantôme</b><small>+2 pièces · +1 magie</small></button>
+                        <button class="carte" id="loup"><i class="icone"></i>🐺<b>Loup</b><small>+2 pièces · +1 force</small></button>
+                        <button class="carte" id="paladin"><i class="icone">👽</i><b>Paladin</b><small>+1 pièce · +1 force et magie</small></button>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="fenetre" id="boutique">
+                <div class="titre">MARCHAND</div>
+                <div class="contenu liste">
+                    <button class="article" id="acheter-cle"><i class="icone">🗝️</i>Clé<span class="prix">3 PO</span></button>
+                    <button class="article" id="acheter-chapeau"><i class="icone">🎩</i>Chapeau<span class="prix">5 PO</span></button>
+                </div>
+            </aside>
+        </main>
+
+        <footer class="fenetre porte">
+            <p>PORTE DU BOSS : niveau 20 et clé requis</p>
+            <button class="boss" id="boss"><i class="icone">💀</i>Affronter le boss</button>
+        </footer>
+
+    </div>
+
+    <script src="E.js"></script>
+</body>
+</html>
